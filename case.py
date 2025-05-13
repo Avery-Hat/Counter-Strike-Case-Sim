@@ -5,6 +5,7 @@ class StandardCase:
     def __init__(self, name, items_by_rarity):
         self.name = name
         self.items_by_rarity = items_by_rarity
+        self.best_rarity = "Exceedingly Rare"
 
     def open(self):
         rarities = list(RARITY_WEIGHT_STANDARD.keys())
@@ -18,12 +19,15 @@ class StandardCase:
         
         item = random.choice(pool)
         print(f"[{self.name}] You unboxed: {item} ({chosen_rarity})")
-        return item
+        if chosen_rarity == self.best_rarity:
+            print("GOLD GOLD GOLD GOLD")
+        return item, chosen_rarity
     
 class SouvenirCase:
     def __init__(self, name, items_by_rarity):
         self.name = name
         self.items_by_rarity = items_by_rarity
+        self.best_rarity = ("Covert", "Classified")
 
     def open(self):
         rarities = list(RARITY_WEIGHT_SOUVENIR.keys())
@@ -37,12 +41,16 @@ class SouvenirCase:
         
         item = random.choice(pool)
         print(f"[{self.name}] You unboxed: {item} ({chosen_rarity})")
-        return item
+        if chosen_rarity in self.best_rarity:
+            print("GOLD GOLD GOLD GOLD")
+        return item, chosen_rarity
+
 
 class StickerCapsule:
     def __init__(self, name, items_by_rarity):
         self.name = name
         self.items_by_rarity = items_by_rarity
+        self.best_rarity = ("Extraordinary", "Exotic")
 
     def open(self):
         rarities = list(RARITY_WEIGHT_STICKER_CAPSULE.keys())
@@ -52,8 +60,10 @@ class StickerCapsule:
         pool = self.items_by_rarity.get(chosen_rarity, [])
         if not pool:
             print(f"No items available in rarity: {chosen_rarity}")
-            return None
-        
+            return None, None
+
         item = random.choice(pool)
         print(f"[{self.name}] You unboxed: {item} ({chosen_rarity})")
-        return item
+        if chosen_rarity in self.best_rarity:
+            print("GOLD GOLD GOLD GOLD")
+        return item, chosen_rarity

@@ -13,12 +13,15 @@ items_by_rarity = {
     ],
     "Remarkable": [
         StickerItem("Sticker | 3DMAX (Holo) | Katowice 2014"),
-        StickerItem("Sticker | iBUYPOWER (Holo) | Katowice 2014"),
         StickerItem("Sticker | mousesports (Holo) | Katowice 2014"),
         StickerItem("Sticker | Clan-Mystik (Holo) | Katowice 2014"),
+        StickerItem("Sticker | Virtus.Pro (Holo) | Katowice 2014"),
+
+    ],
+    "Extraordinary": [
+        StickerItem("Sticker | iBUYPOWER (Holo) | Katowice 2014"),
         StickerItem("Sticker | Natus Vincere (Holo) | Katowice 2014"),
         StickerItem("Sticker | Reason Gaming (Holo) | Katowice 2014"),
-        StickerItem("Sticker | Virtus.Pro (Holo) | Katowice 2014"),
         StickerItem("Sticker | Vox Eminor (Holo) | Katowice 2014"),
     ],
     "Exotic": [

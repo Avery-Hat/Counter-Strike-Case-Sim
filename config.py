@@ -7,12 +7,12 @@ RARITY_WEIGHT_STANDARD = {
 }
 
 RARITY_WEIGHT_SOUVENIR = {
-    "Consumer": 80.00,
+    "Consumer": 0.0256,
     "Industrial": 16.00,
     "Mil-Spec": 3.2,
     "Restricted": 0.64,
     "Classified": 0.128,
-    "Covert": 0.0256
+    "Covert": 80.00 #0.0256
 }
 
 RARITY_WEIGHT_STICKER_CAPSULE = {

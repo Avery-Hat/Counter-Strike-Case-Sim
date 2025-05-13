@@ -29,11 +29,28 @@ def main():
             continue
         
         print(f"\n Opening {count}x {case_name.title()}...\n")
+
+        special_drops = []
+
         for _ in range(count):
-            item = case.open()
+            item, rarity = case.open()  # unpack both item and rarity
             if item:
+                if hasattr(case, "best_rarity"):
+                    # Support single or multiple rarities
+                    if isinstance(case.best_rarity, (tuple, list)):
+                        if rarity in case.best_rarity:
+                            special_drops.append((item, rarity))
+                    else:
+                        if rarity == case.best_rarity:
+                            special_drops.append((item, rarity))
                 print()
-    
+
+        if special_drops:
+            print("GIGA DROPS!!!!: ")
+            for item, rarity in special_drops:
+                print(f" * {item} ({rarity})")
+        else:
+            print("No top-tier items. Keep gambling.")
 
 if __name__ == "__main__":
     main()
