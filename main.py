@@ -2,34 +2,38 @@ from case import StandardCase, SouvenirCase, StickerCapsule
 from cases import bravo_case
 from cases import dreamhack_cobblestone
 from cases import ems_katowice_2014_challengers
+from CaseRegistry import * #registry for player input
 
 def main():
-    #standard case test opening,
-    bravo = StandardCase("Operation Bravo", bravo_case.items_by_rarity)
-    souvenir_case = SouvenirCase("DreamHack 2014 Cobblestone Souvenir", dreamhack_cobblestone.items_by_rarity)
-    capsule = StickerCapsule("EMS Katowice 2014 Challengers", ems_katowice_2014_challengers.items_by_rarity)
+    print("Welcome to cs gamble sim 10 million")
+    print("Cases to choose from: bravo, katowice capsule, or cobblestone")
+    print("Type 'quit' to exit at any time. \n")
 
-    print("Opening 5 Bravo Cases...\n")
-    for i in range(5):
-        item = bravo.open()
-        if item is None:
-            print("No item dropped.\n")
-        else:
-            print()
+    while True:
+        case_name = input("Enter the name of the case you want to open: ").strip()
+        if case_name.lower() in ("quit", "q"):
+            print("Goodbye! Quitters never win.")
+            break
 
-    #souvenir case test opening 
-    print("Opening 5 DreamHack 2014 Cobblestone Souvenir Packages...\n")
-    for _ in range(5):
-        item = souvenir_case.open()
-        if item:
-            print()
 
-    #sticker capsule case test opening
-    print("Opening 5 EMS Katowice 2014 Challengers Sticker Capsules...\n")
-    for _ in range(5):
-        item = capsule.open()
-        if item:
-            print()
+        case = registry.get_case(case_name)
+
+        if not case:
+            print("Invalid case name.")
+            continue
+        
+        try:
+            count = int(input(f"How many {case_name} cases would you like to open? "))
+        except ValueError:
+            print("Invalid number.")
+            continue
+        
+        print(f"\n Opening {count}x {case_name.title()}...\n")
+        for _ in range(count):
+            item = case.open()
+            if item:
+                print()
+    
 
 if __name__ == "__main__":
     main()
