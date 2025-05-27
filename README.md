@@ -14,6 +14,9 @@ This is my first personal project for Boot.Dev. It took a bit of brainstorming b
 ## Tools
 Python3 via VSCode
 
+##How to
+Ran with Python3 on VSCode, pull everything into a folder, and run main.py via vscode or your IDE. Will update soon for pygame.
+
 ## What I learned
 Surprisingly, there aren't many coding projects that require user input or even creating them. It was fun utilizing basics such as those for the first time. A bit of time was also spent relearning python as I was stuck in C hell for the previous project before this.
 
